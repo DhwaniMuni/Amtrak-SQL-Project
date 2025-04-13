@@ -25,7 +25,7 @@ We modeled ridership data, created a normalized schema, and then generated insig
 This project models Amtrak data—**ridership**, **Guest Rewards**, **stations**, and **employees**—to analyze:
 - Conversions from regular riders into Guest Rewards members  
 - Efficiency of employee salary spending compared to ridership volume  
-- Regional differences across U.S. states
+- Regional differences across U.S. states  
 
 **Goal**: Help decision-makers see where Amtrak can better allocate staff and improve loyalty programs.
 
@@ -63,7 +63,18 @@ Here’s a visual representation of the final schema design:
 
 ## Repository Structure
 
-Amtrak-SQL-Project/ ├── Data/ │ └── Amtrack.xlsx # Our curated Excel data ├── SQL/ │ ├── create_tables.sql # DDL: CREATE TABLE statements │ └── insert_data.sql # DML: Sample insert statements ├── Screenshots/ │ ├── ERD.png # The ERD image shown above │ ├── guest_rewards_lowest.png │ ├── guest_rewards_growth_map.png │ └── salary_to_ridership_ratio.png └── README.md
+Amtrak-SQL-Project/
+├── Data/
+│   └── Amtrack.xlsx             # Our curated Excel data
+├── SQL/
+│   ├── create_tables.sql        # DDL: CREATE TABLE statements
+│   └── insert_data.sql          # DML: Sample insert statements
+├── Screenshots/
+│   ├── ERD.png                  # The ERD image shown above
+│   ├── guest_rewards_lowest.png
+│   ├── guest_rewards_growth_map.png
+│   └── salary_to_ridership_ratio.png
+└── README.md
 
 
 1. **Data/**: The structured Excel file (`Amtrack.xlsx`).  
@@ -84,8 +95,8 @@ Amtrak-SQL-Project/ ├── Data/ │ └── Amtrack.xlsx # Our curated Exc
    - Run the statements to build 5 tables: `State`, `Station`, `Ridership`, `Employee`, `GuestRewards`.
 
 3. **Insert Data**  
-   - Option A: Run `SQL/insert_data.sql` for sample entries.  
-   - Option B: Import `Data/Amtrack.xlsx` directly into your database if you want the full data as-is.
+   - **Option A**: Run `SQL/insert_data.sql` for sample entries.  
+   - **Option B**: Import `Data/Amtrack.xlsx` directly into your database if you want the full data as-is.
 
 4. **Write Your Own Queries**  
    - Explore ridership, membership growth, and employee salaries.  
@@ -102,15 +113,21 @@ Amtrak-SQL-Project/ ├── Data/ │ └── Amtrack.xlsx # Our curated Exc
 Below are 3 key dashboards we built in Tableau (not including the `.twb` here, but you can recreate if needed).
 
 ### 1. States with the Lowest Guest Rewards Enrollment
-![Guest Rewards Enrollment](Screenshots/guest_rewards_lowest.png)  
+
+![Guest Rewards Enrollment](Screenshots/guest_rewards_lowest.png)
+
 *Despite high ridership in states like California and New York, Guest Rewards enrollment remains low. This indicates a need for stronger marketing or outreach to convert regular riders into loyalty members.*
 
 ### 2. Growth in Guest Rewards Membership (2021–2023)
-![Guest Rewards Growth Map](Screenshots/guest_rewards_growth_map.png)  
+
+![Guest Rewards Growth Map](Screenshots/guest_rewards_growth_map.png)
+
 *States like Maine and Georgia show the highest growth, potentially reflecting successful promotions or improved service. Underperforming states might replicate these strategies to boost membership.*
 
 ### 3. Salary-to-Ridership Ratio by State
-![Salary to Ridership](Screenshots/salary_to_ridership_ratio.png)  
+
+![Salary to Ridership](Screenshots/salary_to_ridership_ratio.png)
+
 *Indiana stands out with a disproportionate salary-to-rider ratio, suggesting potential overstaffing or high payroll relative to ridership.*
 
 ---
@@ -130,27 +147,27 @@ Below are 3 key dashboards we built in Tableau (not including the `.twb` here, b
 
 ## Note on Table Names with `$`
 
-When data is imported from Excel, SQL Server appends a `$` to sheet-based tables (e.g. `GuestRewards$`). This is not an error.
+When data is imported from Excel, SQL Server appends a `$` to sheet-based tables (e.g., `GuestRewards$`). This is not an error.
 
 If you’d like **cleaner** table names:
 ```sql
 SELECT * INTO GuestRewards FROM [GuestRewards$];
 DROP TABLE [GuestRewards$];
 
-Technologies Used
-SQL Server (T-SQL)
+Then update all references in your queries or Tableau
+to point to GuestRewards (instead of GuestRewards$). This ensures your queries or dashboards won’t break if they still reference the old table name.
 
-Excel (data cleaning & formatting)
+## Technologies Used
 
-Tableau (visualization, optional)
+- **SQL Server** (T-SQL)
+- **Excel** (data cleaning & formatting)
+- **Tableau** (visualization, optional)
+- **GitHub** (version control)
 
-GitHub (version control)
+## Credits
 
-Credits
-Team: [Your Name], [Collaborators, if any]
+- **Team**: Dhwani Muni, Yancy Longin, Danielle Anane, Ashwin Balaji
+- **Data**: Merged from real Amtrak references and custom Excel formatting
+- **Purpose**: Showcases database design, SQL analysis, and data insights for real-world operations
 
-Data: Merged from real Amtrak references and custom Excel formatting
-
-Purpose: Showcases database design, SQL analysis, and data insights for real-world operations
-
-Thank you for checking out this project!
+**Thank you for checking out this project!**
