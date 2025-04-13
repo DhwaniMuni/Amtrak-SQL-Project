@@ -14,7 +14,7 @@ We modeled ridership data, created a normalized schema, and then generated insig
 5. [Setup & Usage](#setup--usage)  
 6. [Visual Insights (Screenshots)](#visual-insights-screenshots)  
 7. [Key Findings](#key-findings)  
-8. [Note on Table Names with `$`](#note-on-table-names-with)  
+8. [Note on Table Names with `$`](#note-on-table-names-with)
 9. [Technologies Used](#technologies-used)  
 10. [Credits](#credits)
 
