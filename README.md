@@ -149,13 +149,10 @@ Below are 3 key dashboards we built in Tableau (not including the `.twb` here, b
 
 When data is imported from Excel, SQL Server appends a `$` to sheet-based tables (e.g., `GuestRewards$`). This is not an error.
 
-If you’d like **cleaner** table names:
 ```sql
 SELECT * INTO GuestRewards FROM [GuestRewards$];
 DROP TABLE [GuestRewards$];
-
-Then update all references in your queries or Tableau
-to point to GuestRewards (instead of GuestRewards$). This ensures your queries or dashboards won’t break if they still reference the old table name.
+```
 
 ## Technologies Used
 
